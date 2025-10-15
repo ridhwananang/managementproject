@@ -1,6 +1,7 @@
 // Components
 import PasswordResetLinkController from '@/actions/App/Http/Controllers/Auth/PasswordResetLinkController';
-import { login } from '@/routes';
+import { route } from 'ziggy-js';
+import { Ziggy } from '@/ziggy';
 import { Form, Head } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 
@@ -61,7 +62,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
                 <div className="space-x-1 text-center text-sm text-muted-foreground">
                     <span>Or, return to</span>
-                    <TextLink href={login()}>log in</TextLink>
+                    <TextLink href={route('login')}>log in</TextLink>
                 </div>
             </div>
         </AuthLayout>
