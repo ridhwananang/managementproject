@@ -10,7 +10,7 @@ const Ziggy = {
     "register.store": { uri: "register", methods: ["POST"] },
     "password.request": { uri: "forgot-password", methods: ["GET","HEAD"] },
     "password.email": { uri: "forgot-password", methods: ["POST"] },
-    "dashboard": { uri: "dashboard", methods: ["GET","HEAD"] },
+    "dashboard.index": { uri: "dashboard", methods: ["GET","HEAD"] },
     "logout": { uri: "logout", methods: ["POST"] },
     "profile": { uri: "profile", methods: ["GET","HEAD"] },
     "profile.update": { uri: "profile", methods: ["PATCH"] },
