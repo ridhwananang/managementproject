@@ -1,6 +1,6 @@
 // resources/js/routes.ts
 const Ziggy = {
-  url: "http://127.0.0.1:8000",
+  url: "https://promanagementsys.laravel.cloud/",
   port: 8000,
   defaults: {},
   routes: {
