@@ -3,9 +3,11 @@ import { Head } from "@inertiajs/react";
 import Sidebar from "@/components/sidebar";
 import Topbar from "@/components/topbar";
 import { Toaster } from "react-hot-toast";
+import { type BreadcrumbItem } from "@/types";
 
 interface AppLayoutProps {
   title?: string;
+    breadcrumbs?: BreadcrumbItem[];
   children: React.ReactNode;
 }
 
