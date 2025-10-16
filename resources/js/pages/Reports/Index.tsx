@@ -18,11 +18,11 @@ type Props = {
 export default function Index({ reports }: Props) {
   return (
     <AppLayout>
-      <div className="p-6 space-y-8">
+      <div className="p-6 space-y-8 transition-colors duration-300">
         {/* HEADER */}
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold flex items-center gap-2 text-white">
-            <FolderOpen className="text-indigo-400" /> Development Reports
+          <h1 className="text-3xl font-bold flex items-center gap-2 text-gray-800 dark:text-gray-100">
+            <FolderOpen className="text-indigo-500" /> Development Reports
           </h1>
         </div>
 
@@ -32,20 +32,20 @@ export default function Index({ reports }: Props) {
             {reports.map((report) => (
               <div
                 key={report.project_id}
-                className="bg-[#1b243b]/80 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-lg hover:shadow-indigo-700/20 hover:scale-[1.02] transition-all duration-300 p-6 flex flex-col justify-between"
+                className="bg-white/70 dark:bg-[#1e293b]/80 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/10 hover:scale-[1.02] transition-all duration-300 p-6 flex flex-col justify-between"
               >
                 {/* Project Info */}
                 <div>
-                  <h2 className="text-2xl font-semibold text-gray-100 mb-1">
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
                     {report.project_name}
                   </h2>
-                  <p className="text-sm text-gray-400 mb-4 line-clamp-3">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
                     {report.project_description || "No description available."}
                   </p>
 
                   {/* Members */}
-                  <div className="flex items-center gap-2 text-sm text-gray-300 mb-4">
-                    <Users size={16} className="text-indigo-400" />
+                  <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                    <Users size={16} className="text-indigo-500 dark:text-indigo-400" />
                     <span>
                       {report.project_members.length > 0
                         ? report.project_members.map((m) => m.user.name).join(", ")
@@ -54,13 +54,13 @@ export default function Index({ reports }: Props) {
                   </div>
 
                   {/* Progress Bar */}
-                  <div className="h-3 bg-gray-800 rounded-full overflow-hidden shadow-inner mb-1">
+                  <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden shadow-inner mb-1">
                     <div
                       className="h-full bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 transition-all duration-700"
                       style={{ width: `${report.progress_percentage}%` }}
                     ></div>
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
                     {report.progress_percentage}% Completed
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default function Index({ reports }: Props) {
                 {/* View Report Button */}
                 <Link
                   href={`/report/${report.project_id}`}
-                  className="mt-6 block text-center font-semibold text-indigo-100 bg-gradient-to-r from-indigo-600 to-purple-600 py-2 rounded-xl shadow-md hover:from-indigo-500 hover:to-purple-500 transition-all"
+                  className="mt-6 block text-center font-semibold text-white dark:text-gray-100 bg-gradient-to-r from-indigo-600 to-purple-600 py-2 rounded-xl shadow-md hover:from-indigo-500 hover:to-purple-500 transition-all"
                 >
                   View Report
                 </Link>
@@ -76,8 +76,10 @@ export default function Index({ reports }: Props) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 bg-[#1b243b]/60 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-inner">
-            <p className="text-gray-400 text-lg">No reports available.</p>
+          <div className="text-center py-20 bg-white/60 dark:bg-[#1e293b]/60 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-inner">
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              No reports available.
+            </p>
           </div>
         )}
       </div>
